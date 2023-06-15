@@ -1,0 +1,37 @@
+﻿@model List<GymManager.Core.Entities.Member>
+@{
+}
+
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Birthday</th>
+            <th scope="col">Email</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var member in Model)
+        {
+            <tr>
+                <th>@member.Name</th>
+                <td>@member.LastName</td>
+                <td>@member.Birthday.ToString("dd/MM/yyyy")</td>
+                <td>@member.Email</td>
+                <td>
+                    <a asp-action="Edit" class="btn btn-outline-warning" asp-route-memberId="@member.Id">
+                        <i class="bi bi-pencil-fill"></i>
+                    </a>
+                    <a asp-action="Delete" class="btn btn-outline-danger" asp-route-memberId="@member.Id">
+                        <i class="bi bi-trash"></i>
+                    </a>
+                    
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

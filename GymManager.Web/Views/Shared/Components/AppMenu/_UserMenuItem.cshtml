@@ -1,0 +1,37 @@
+﻿@using GymManager.Core.Navigation
+@model GymManager.Web.Model.UserMenuItemViewModel
+@{
+    var orderedChildMenuItems = Model.MenuItem.Items.OrderBy(item => item.Order);
+}
+
+@if(Model.MenuItem.Items.Count < 1)
+{
+    <li class="nav-item">
+        <a class="nav-link
+            @(Model.MenuItem.IsMenuActive(Model.CurrentPageName) ? "active" : "")"
+            @(Model.MenuItem.IsMenuActive(Model.CurrentPageName) ? "aria-current=\"page\"" : "")
+            href="@Model.MenuItem.Url"
+        >@Model.MenuItem.DisplayName</a>
+    </li>
+}
+else
+{
+    string currentElementId = ""+ new Random().Next();
+
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle
+            @(Model.MenuItem.IsMenuActive(Model.CurrentPageName) ? "active" : "")"
+            @(Model.MenuItem.IsMenuActive(Model.CurrentPageName) ? "aria-current=\"page\"" : "")
+            id="@currentElementId"
+            href="@Model.MenuItem.Url" 
+            role="button" 
+            data-bs-toggle="dropdown" 
+        >@Model.MenuItem.DisplayName</a>
+        <ul class="dropdown-menu" aria-labelledby="@currentElementId">
+            @foreach(var subMenu in Model.MenuItem.Items)
+            {
+                <li><a class="dropdown-item" href="@subMenu.Url">@subMenu.DisplayName</a></li>
+            }
+        </ul>
+    </li>
+}

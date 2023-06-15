@@ -1,0 +1,63 @@
+﻿@model GymManager.Web.Models.MembershipTypeViewModel
+@{
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+@section Head{
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="~/lib/jqueryui/jquery-ui.min.css" rel="stylesheet" />
+
+
+}
+@section Scripts{
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="~/lib/jqueryui/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.js"></script>
+
+    <script src="~/Views/Members/Create.js"></script>
+}
+
+<div class="container">
+
+    <h3 class="mb-3">Member registration</h3>
+
+    <form asp-action="Create">
+
+        <div class="mb-3">
+            <label class="form-lable" asp-for="Name">Name</label>
+            <input type="text" class="form-control" asp-for="Name" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        
+        
+        <div class="mb-3">
+            <label asp-for="Duration" class="form-label">Duration</label>
+            <select class="form-control" asp-for="Duration">
+                
+                <option value="1">1 Month</option>
+                <option value="2">2 Month</option>
+                <option value="3">3 Month</option>
+                <option value="4">4 Month</option>
+                <option value="5">5 Month</option>
+                <option value="6">6 Month</option>
+                <option value="7">7 Month</option>
+                <option value="8">8 Month</option>
+                <option value="9">9 Month</option>
+                <option value="10">10 Month</option>
+                <option value="11">11 Month</option>
+                <option value="12">12 Month</option>
+            </select>
+            <span asp-validation-for="Duration" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Cost" class="form-label">Cost</label>
+            <input type="number" class="form-control" asp-for="Cost" />
+            <span asp-validation-for="Cost" class="text-danger"></span>
+        </div>
+        
+        <button type="submit" class="btn btn-primary mb-3">Submit</button>
+    </form>
+</div>

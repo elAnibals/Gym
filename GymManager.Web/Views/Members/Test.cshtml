@@ -1,0 +1,35 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Head{
+    <style>
+        h1.mt-5{
+            color:red;
+        }   
+    </style>  
+}
+
+@section Scripts{
+    <script>    
+        setTimeout(()=>alert("esta es una alerta"),3000);
+    </script>
+}
+
+<div class="container">
+    <h1 class="mt-5">Second View</h1>
+    <img class="logo" src="~/images/logo.png" />
+
+    <p class="lead">
+        Pin a footer to the bottom of the viewport in desktop browsers with this custom HTML and
+        CSS. A fixed navbar has been added with <code class="small">padding-top: 60px;</code> on the <code class="small">
+        main &gt; .container
+        </code>.
+    </p>
+    <p>Back to <a href="">the default sticky footer</a> minus the navbar.</p>
+
+</div>
+  
